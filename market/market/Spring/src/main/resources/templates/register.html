@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Sign-Up</h2>
+
+    <div th:if="${message != null}" class="message">
+        [[${message}]]
+    </div>
+
+    <form th:action="@{/registration}" method="post" role="form" th:object="${user}">
+        <div class="input-group">
+            <label for="name">Name:</label>
+            <input th:field="*{name}" type="text" id="name" name="name" placeholder="Enter your Name" required>
+        </div>
+        <div class="input-group">
+            <label for="email">Email:</label>
+            <input th:field="*{email}" type="email" id="email" name="email" placeholder="Enter your email"  required>
+        </div>
+        <div class="input-group">
+            <label for="role">Role:</label>
+            <input th:field="*{role}" type="text" id="role" name="role" placeholder="Enter your Role" required>
+        </div>
+        <div class="input-group">
+            <label for="pass">Password:</label>
+            <input th:field="*{password}" type="password" id="pass" name="pass" placeholder="Enter your Password" required>
+        </div>
+
+        <div class="input-group">
+            <label for="repass">Re-Password:</label>
+            <input th:field="*{rePassword}" type="password" id="repass" name="repass" placeholder="Enter your Re-Password" required>
+        </div>
+        <button type="submit" class="btn">Register</button>
+    </form>
+    <p>Already have an account?<a th:href="@{/login}">login</a></p>
+</div>
+</body>
+</html>

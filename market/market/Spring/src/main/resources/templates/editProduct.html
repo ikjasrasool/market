@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update product</title>
+    <link rel="stylesheet" th:href="@{../css/styles.css}">
+</head>
+<body>
+
+<div class="container">
+    <h2>UPDATE PRODUCT</h2>
+
+    <div th:if="${message != null}" class="message">
+        [[${message}]]
+    </div>
+
+    <form th:action="@{/product}" method="post" role="form" th:object="${product}">
+        <input hidden="hidden" th:field="*{id}">
+        <div class="input-group">
+            <label for="name">Product Name:</label>
+            <input th:field="*{name}" type="text" id="name" name="name" placeholder="Enter Product Name" required>
+        </div>
+        <div class="input-group">
+            <label for="file">Image:</label>
+            <input th:field="*{image}" type="file" id="file" name="file" accept="image/*" >
+        </div>
+        <div class="input-group">
+            <label for="quantity">Category:</label>
+            <input th:field="*{category}" type="text" id="quantity" name="quantity" placeholder="Enter Product Category" required>
+        </div>
+        <div class="input-group">
+            <label for="price">Price:</label>
+            <input th:field="*{price}" type="text" id="price" name="price" placeholder="Enter Product Price" required>
+        </div>
+
+        <div class="input-group">
+            <label for="weight">Weight:</label>
+            <input th:field="*{weight}" type="text" id="weight" name="weight" placeholder="Enter Product Weight" required>
+        </div>
+        <div class="input-group">
+            <label for="description">Description:</label>
+            <input th:field="*{description}" type="text" id="description" name="description" placeholder="Enter Product Description" required>
+        </div>
+
+        <button type="submit" class="btn">UPDATE</button>
+    </form>
+</div>
+</body>
+</html>
